@@ -1,0 +1,140 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*________________________________________________________*/
+
+.container {
+  margin: 0;
+  height:100%;
+  width:100%;
+  padding:0;
+} 
+
+.screen-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  box-sizing: content-box;
+}
+
+#start-section {
+  background-color: white;
+}
+
+#game-section {
+  align-items: center;
+  background-image: url(images/game_screen_background.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#question-field {
+  background-color: white;
+  height: 10vh;
+}
+
+#names-points-triangle-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80vh;
+}
+
+#player-one-panel {
+  background-color: rgb(112, 112, 50);
+  width: 25vh;
+}
+
+#triangle-board {
+  background-color: goldenrod;
+  width: 50vh;
+}
+
+#player-two-panel {
+  background-color: rgb(112, 112, 50);
+  width: 25vh;
+}
+
+#answers-board {
+  background-color: rgb(175, 121, 121);
+  height: 5vh;
+}
+
+#what-is-next-board {
+  background-color: rgb(65, 100, 80);
+  height: 5vh;
+}
+
+
+#and-the-winner-is-section {
+  background-color: white;
+  
+}
+
+#triangle-board {
+  background-color: transparent;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  flex-basis: 60%;
+  flex-direction: column;
+}
+
+.hexa-button {
+  background-color: rgb(160, 90, 230);
+  height: 40px;
+  width: 35px;
+  margin: 2px;
+  text-align: center;
+}
+
+.hexa-button-field {
+  display:flex;
+  justify-content: center;
+}

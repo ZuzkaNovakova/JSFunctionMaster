@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="Stylesheet" href="main.css">
+  <title>JSFunctionMaster</title>
+</head>
+<body>
+  <div class="container">
+
+    <section class="screen-section" id="start-section">
+      <div>
+        <button id="play-button">Play</button>
+      </div>
+    </section>
+
+    <section class="screen-section" id="game-section">
+     
+      <div id="question-field">FUNCTION DESCRIPTION</div>
+
+      <div id="names-points-triangle-panel">
+        <div id="player-one-panel">
+          <div id="player-one-name">PLAYER ONE NAME</div>
+          <div id="display-points-player-one">POINTS PLAYER ONE</div>
+        </div>
+        
+        <div id="triangle-board">
+          <div class="hexa-button-field">
+            <div id="0" class="hexa-button">0</div>
+          </div>  
+          <div class="hexa-button-field">  
+            <div id="1" class="hexa-button">1</div>
+            <div id="2" class="hexa-button">2</div>
+          </div>
+          <div class="hexa-button-field">  
+            <div id="3" class="hexa-button">3</div>
+            <div id="4" class="hexa-button">4</div>
+            <div id="5" class="hexa-button">5</div>
+          </div>
+          <div class="hexa-button-field">
+            <div id="6" class="hexa-button">6</div>
+            <div id="7" class="hexa-button">7</div>
+            <div id="8" class="hexa-button">8</div>
+            <div id="9" class="hexa-button">9</div>
+          </div>
+          <div class="hexa-button-field">  
+            <div id="10" class="hexa-button">10</div>
+            <div id="11" class="hexa-button">11</div>
+            <div id="12" class="hexa-button">12</div>
+            <div id="13" class="hexa-button">13</div>
+            <div id="14" class="hexa-button">14</div>
+          </div>
+          <div class="hexa-button-field">
+            <div id="15" class="hexa-button">15</div>
+            <div id="16" class="hexa-button">16</div>
+            <div id="17" class="hexa-button">17</div>
+            <div id="18" class="hexa-button">18</div>
+            <div id="19" class="hexa-button">19</div>
+            <div id="20" class="hexa-button">20</div>
+          </div>
+          <div class="hexa-button-field"> 
+            <div id="21" class="hexa-button">21</div>
+            <div id="22" class="hexa-button">22</div>
+            <div id="23" class="hexa-button">23</div>
+            <div id="24" class="hexa-button">24</div>
+            <div id="25" class="hexa-button">25</div>
+            <div id="26" class="hexa-button">26</div>
+            <div id="27" class="hexa-button">27</div>
+          </div>
+        </div>
+        <div id="player-two-panel">
+          <div id="player-two-name">PLAYER TWO NAME</div>
+          <div id="display-points-player-two">POINTS PLAYER TWO</div>
+        </div>
+      </div>
+
+      <div id="answers-board">
+          <form>
+            <label for="input-answer">Your Answer</label>
+            <input id="input-answer" type="text" placeholder="Answer example: showMe (No brackets or dots needed, case-sensitive!)">
+            <button type="button" id="button-submit-answer" onclick="myGame.submitAnswer()">Let´s go!</button>
+          </form>
+      </div>
+
+      <div id="what-is-next-board">WHAT IS NEXT</div>
+
+    </section>
+
+
+    <section class="screen-section" id="and-the-winner-is-section">
+        <button id="play-again-button">Back to start screen</button>
+    </section>
+
+  </div>
+
+  <script src="game.js"></script>
+  <script src="index.js"></script> 
+  
+</body>
+</html>
