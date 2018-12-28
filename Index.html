@@ -11,6 +11,13 @@
   <div class="container">
 
     <section class="screen-section" id="start-section">
+      <div id="game-name">
+        JSFunctionMaster</div>
+      <div id="players-names">
+      <div class="player-name">Player One Name</div>
+      <div class="player-name">Player Two Name</div>
+      </div>
+      <div>Shuffle Turns?</div>
       <div>
         <button id="play-button">Play</button>
       </div>
@@ -18,12 +25,37 @@
 
     <section class="screen-section" id="game-section">
      
-      <div id="question-field">FUNCTION DESCRIPTION</div>
+      <div id="question-chrono-field">
+        <div id="question-field"></div>
+        <div id="chrono"></div>
+      </div>
 
-      <div id="names-points-triangle-panel">
-        <div id="player-one-panel">
-          <div id="player-one-name">PLAYER ONE NAME</div>
-          <div id="display-points-player-one">POINTS PLAYER ONE</div>
+      <div id="names-points-triangle-timer-panel">
+
+        <div id="players-panel">
+
+          <div id="player-one-panel">
+            <div id="player-one-name">PLAYER ONE NAME</div>
+            <div id="display-points-player-one">POINTS PLAYER ONE</div>
+           
+            <div class="ask-our-friend-MDN">
+              <div class="ask-mdn"></div>
+              <div>Ask our friend MDN</div>
+            </div>
+
+          </div>  
+
+          <div id="player-two-panel">
+            <div id="player-two-name">PLAYER TWO NAME</div>
+            <div id="display-points-player-two">POINTS PLAYER TWO</div>
+            
+            <div class="ask-our-friend-MDN">
+              <div class="ask-mdn"></div>
+              <div>Ask our friend MDN</div>
+            </div>
+
+          </div>
+
         </div>
         
         <div id="triangle-board">
@@ -70,21 +102,21 @@
             <div id="27" class="hexa-button">27</div>
           </div>
         </div>
-        <div id="player-two-panel">
-          <div id="player-two-name">PLAYER TWO NAME</div>
-          <div id="display-points-player-two">POINTS PLAYER TWO</div>
-        </div>
+        
+        <div id="timer-panel">TIMER?</div>
+        
       </div>
 
-      <div id="answers-board">
-          <form>
-            <label for="input-answer">Your Answer</label>
+      <div id="answers-whatnext-board">
+        <div id="answers-board">
+          <form id="form">
+            <label for="input-answer">Submit your answer:</label>
             <input id="input-answer" type="text" placeholder="Answer example: showMe (No brackets or dots needed, case-sensitive!)">
             <button type="button" id="button-submit-answer" onclick="myGame.submitAnswer()">Let´s go!</button>
           </form>
+        </div>
+        <div id="what-is-next-board">And now?</div>
       </div>
-
-      <div id="what-is-next-board">WHAT IS NEXT</div>
 
     </section>
 

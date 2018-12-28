@@ -50,91 +50,201 @@ table {
 /*________________________________________________________*/
 
 .container {
-  margin: 0;
+  font-family: Verdana,sans-serif;
+  margin: auto;
   height:100%;
   width:100%;
-  padding:0;
+  box-sizing: border-box;
 } 
 
 .screen-section {
   display: flex;
   height: 100vh;
   width: 100%;
-  box-sizing: content-box;
 }
 
 #start-section {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(images/start_screen_background.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#game-name {
+  color: rgb(42, 205, 226);
+}
+
+#players-names {
+  display: flex;
+  flex-direction: row;
+  color: rgb(42, 205, 226);
+}
+
+.player-name {
+  color: rgb(42, 205, 226);
 }
 
 #game-section {
+  display: flex;
   align-items: center;
+  justify-content: center;
   background-image: url(images/game_screen_background.jpeg);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
-#question-field {
-  background-color: white;
-  height: 10vh;
-}
-
-#names-points-triangle-panel {
+#question-chrono-field {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 80vh;
+  height: 17vh;
+  padding: 0 10px;
 }
 
-#player-one-panel {
-  background-color: rgb(112, 112, 50);
-  width: 25vh;
+#question-field {
+  background-color: rgb(160, 221, 229);
+  background-image: radial-gradient( rgb(42, 205, 226), rgb(2, 62, 70));
+  color: white;
+  font-size: 2vw;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 140%;
+  padding: 5px 0;
 }
 
-#triangle-board {
-  background-color: goldenrod;
-  width: 50vh;
+#names-points-triangle-timer-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 70vh;
 }
 
-#player-two-panel {
-  background-color: rgb(112, 112, 50);
-  width: 25vh;
+#players-panel {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 34vh;
+  height: 70vh;
+  padding: 0 15px;
+  margin: 0 25px; 
 }
 
-#answers-board {
-  background-color: rgb(175, 121, 121);
-  height: 5vh;
+.ask-our-friend-MDN {
+  display: flex;
 }
 
-#what-is-next-board {
-  background-color: rgb(65, 100, 80);
-  height: 5vh;
-}
-
-
-#and-the-winner-is-section {
-  background-color: white;
-  
+.ask-mdn {
+  background-color: rgb(160, 221, 229);
+  height: 40px;
+  width: 35px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 4px;
 }
 
 #triangle-board {
   background-color: transparent;
   display: flex;
-  height: 300px;
+  height: 70vh;
+  width: 32vh;
   justify-content: center;
   flex-basis: 60%;
   flex-direction: column;
 }
 
+#timer-panel {
+  background-color: rgb(241, 241, 232);
+  width: 34vh;
+}
+
+#answers-whatnext-board {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 13vh;
+  color:white;
+}
+
+#answers-board {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(160, 221, 229);
+  background-image: radial-gradient( rgb(42, 205, 226), rgb(2, 62, 70));
+  width: 60%;
+  height: 80%;
+  padding: 0 15px;
+  margin: 0 15px;
+  border-radius: 4px;
+}
+
+#form {
+  width: 80%;
+  height: 95%;
+  margin: 8px 0;
+}
+
+#input-answer {
+  width: 70%;
+}
+
+#button-submit-answer {
+  font-family: Verdana,sans-serif; 
+  background-color: rgb(4, 214, 241);
+  border: 1px solid rgb(116, 180, 189);
+  background-image: linear-gradient(white, rgb(42, 205, 226));
+  border-radius: 6px;
+  width: 25%;
+  height: 40%;
+  margin: 5px;
+}
+
+#what-is-next-board {
+  background-color: rgb(15, 197, 221);
+  background-image: radial-gradient( rgb(42, 205, 226), rgb(2, 62, 70));
+  width: 40%;
+  height: 80%;
+  padding: 0 15px;
+  margin: 0 15px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 330%;
+  font-size: 1.7vw;
+  padding: 5px 0;
+}
+
+
+
 .hexa-button {
-  background-color: rgb(160, 90, 230);
-  height: 40px;
-  width: 35px;
+  background-color: rgb(160, 221, 229);
+  padding: 3px;
+  height: 50px;
+  width: 45px;
   margin: 2px;
   text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  border-radius: 4px;
 }
+
+.hexa-button:hover {
+  transform: scale(1.04);
+  background-color: rgb(176, 245, 245);
+}
+
 
 .hexa-button-field {
   display:flex;
   justify-content: center;
+}
+
+#and-the-winner-is-section {
+  align-items: center;
+  background-image: url(images/winner_screen_background.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }

@@ -26,6 +26,8 @@ const myGame = new Game('x', 'y')
 myGame.shuffleQuestionsAndAnswers(this.questionsAndAnswers);
 /*myGame.showNames();*/
 myGame.assignClickToElement();
+myGame.assignClickToAskMDN();
+
 /*myGame.gameOver();*/
 
 

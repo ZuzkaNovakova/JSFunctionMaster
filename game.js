@@ -83,7 +83,7 @@ class Game {
     let questionField = document.getElementById("question-field");
     questionField.innerHTML = this.questionsAndAnswers[buttonNumber].question.toString();
     console.log("Correct answer is" + " " + this.questionsAndAnswers[buttonNumber].answer.toString());
-    event.target.style.backgroundColor = "blue";
+    event.target.style.backgroundColor = "rgb(76, 180, 194)";
     this.numberOfClicks++;
   }
 
@@ -98,7 +98,7 @@ class Game {
   submitAnswer() {
     let submittedAnswer = document.getElementById("input-answer").value;
     for (let i = 0; i < this.hexaButtonsArray.length; i++) {
-      if (this.hexaButtonsArray[i].style.backgroundColor === "blue") {
+      if (this.hexaButtonsArray[i].style.backgroundColor === "rgb(76, 180, 194)") {
         let buttonClickedNumber = this.hexaButtonsArray[i].innerHTML;
         console.log("ButtonClickedNumber" + " " + buttonClickedNumber);
         console.log("Buttons clicked" + " " + this.numberOfClicks + " " + "times");
@@ -117,9 +117,9 @@ class Game {
             displayPointsPlayerOne.innerHTML = this.pointsPlayerOne;
             
             /*Create function changeImageToPlayerOne() ?*/ 
-            var img = '<img src="images/ironhack_blue.png" height="40" width="35">';
+            var img = '<img src="images/ironhack_blue.png" height="50" width="45">';
             this.hexaButtonsArray[i].innerHTML = img;
-            this.hexaButtonsArray[i].style.backgroundColor = "red"}
+            this.hexaButtonsArray[i].style.backgroundColor = "white"}
           
           else if (this.turn === 2) {
             this.pointsPlayerTwo++;
@@ -129,13 +129,13 @@ class Game {
             displayPointsPlayerTwo.innerHTML = this.pointsPlayerTwo;
 
             /*Create function changeImageToPlayerTwo() ?*/
-            var img = '<img src="images/ironhack_black.png" height="40" width="35">';
+            var img = '<img src="images/ironhack_black.png" height="50" width="45">';
             this.hexaButtonsArray[i].innerHTML = img;
-            this.hexaButtonsArray[i].style.backgroundColor = "green"; 
+            this.hexaButtonsArray[i].style.backgroundColor = "white"; 
           }
         } else {
           document.getElementById("input-answer").value = null;
-          this.hexaButtonsArray[i].style.backgroundColor = "blueviolet";
+          this.hexaButtonsArray[i].style.backgroundColor = "rgb(160, 221, 229";
           console.log("Next one");
           let nextOne = document.getElementById("what-is-next-board");
           nextOne.innerHTML = "Sorry, time to change turns."
@@ -150,6 +150,19 @@ class Game {
     } else {
       this.turn = 1}
   } 
+
+  handleAskedMDN(e) {
+    let MDNasked = e.target;
+    return MDNasked.style.backgroundColor = 'transparent';
+  };
+
+  assignClickToAskMDN() {
+    let arrayMDNAsked = document.getElementsByClassName('ask-mdn');
+    for (let i=0; i < arrayMDNAsked.length; i++) {
+      arrayMDNAsked[i].addEventListener('click', this.handleAskedMDN.bind(this))
+    }
+  };
+
 
   /*At the moment I don´t see how to access changeToWinnerScreen() from here... */
   gameOver() {
