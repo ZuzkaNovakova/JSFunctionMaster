@@ -6,6 +6,8 @@ class Game {
     this.pointsPlayerOne = 0;
     this.pointsPlayerTwo = 0;
     this.numberOfClicks = 0;
+    this.darkGreenButtons = [];
+    this.lightGreenButtons = 28;
     this.hexaButtonsArray = document.getElementsByClassName("hexa-button");
     this.questionsAndAnswers = [
     {"question": "This method returns the index of the first element in the array that satisfies the provided testing function.",
@@ -78,64 +80,124 @@ class Game {
     return this.questionsAndAnswers;
   }
   
+  
   handleClickElement(event) {
+  /*Check that the players haven´t used all clicks they have (let´s give them 32) and that there are still light green buttons left */  
+  if (this.numberOfClicks < 32 && this.lightGreenButtons != 0) { 
+    
+    /*Prevent players click more than one button:*/
+    /*Check if there is a dark green button cliked:*/
+    for (let i = 0; i<this.hexaButtonsArray.length; i++) {
+      if (this.hexaButtonsArray[i].style.backgroundColor === "rgb(76, 180, 194)") 
+      {this.darkGreenButtons.push(this.hexaButtonsArray[i])}
+    }
+    console.log(this.darkGreenButtons.length);
+
+    /*if more than one button is clicked:*/
+    if (this.darkGreenButtons.length >= 1) {
+      let nextOne = document.getElementById("what-is-next-board");
+      nextOne.innerHTML = "You can only choose one button.";
+      this.darkGreenButtons.splice(0);
+      console.log("too many buttons clicked");
+      for (let i = 0; i<this.hexaButtonsArray.length; i++) {
+        if (this.hexaButtonsArray[i].style.backgroundColor === "rgb(76, 180, 194)") 
+        {return this.hexaButtonsArray[i].style.backgroundColor = "rgb(160, 221, 229)"}
+      };
+
+    /*if only one button is clicked:*/  
+    }
+    else {
     let buttonNumber = event.target.innerHTML;
     let questionField = document.getElementById("question-field");
     questionField.innerHTML = this.questionsAndAnswers[buttonNumber].question.toString();
+    let nextOne = document.getElementById("what-is-next-board");
+    nextOne.innerHTML = "Submit your answer, please.";
     console.log("Correct answer is" + " " + this.questionsAndAnswers[buttonNumber].answer.toString());
     event.target.style.backgroundColor = "rgb(76, 180, 194)";
-    this.numberOfClicks++;
+    this.numberOfClicks++};
+    }
+
+  /*Players did more than 32 clicks without submitting 28 answers correctly.
+  TO DO: Change to last section, repeat "Stop playing and study harder!"?*/   
+  else {console.log("Game over")
+   let questionField = document.getElementById("question-field");
+   questionField.innerHTML = "Stop playig and study harder!";
+    }    
   }
+
+
 
   assignClickToElement() {
     for (let i = 0; i < this.hexaButtonsArray.length; i++){
       this.hexaButtonsArray[i].addEventListener('click', this.handleClickElement.bind(this), this.numberOfClicks);
-    }
+    } 
   }
 
-  /* I don´t like this code and I suppose I should shorten it with CBs, but when I try, I don´t know how to get
-  the value of the looped element outside the loop (this.hexaButtonsArray[i])... */
   submitAnswer() {
     let submittedAnswer = document.getElementById("input-answer").value;
+
+    /* Search for the clicked button number/index based on clicked button color and the correct answer based on the button number/index within this.hexaButtonsArray. Index/number of the 
+    button corresponds to index of the answer: x within this.questionsAndAnswers. */
     for (let i = 0; i < this.hexaButtonsArray.length; i++) {
       if (this.hexaButtonsArray[i].style.backgroundColor === "rgb(76, 180, 194)") {
         let buttonClickedNumber = this.hexaButtonsArray[i].innerHTML;
         console.log("ButtonClickedNumber" + " " + buttonClickedNumber);
         console.log("Buttons clicked" + " " + this.numberOfClicks + " " + "times");
+
+        /* Compare correct and submitted answer: */
         if (this.questionsAndAnswers[buttonClickedNumber].answer === submittedAnswer) {
           console.log("Correct Player Number" + " " + this.turn);
           let wellDone = document.getElementById("what-is-next-board");
           wellDone.innerHTML = "Well done! You can continue.";
           document.getElementById("input-answer").value = null;
 
-          /*Create function evaluateAnswer() ?*/
+          /*If clicked by Player One*/
           if (this.turn === 1) {
             this.pointsPlayerOne++;
 
-            /*Create function displayPointsPlayerOne() ?*/
+            /*Display points Player One*/
             let displayPointsPlayerOne = document.getElementById("display-points-player-one");
             displayPointsPlayerOne.innerHTML = this.pointsPlayerOne;
             
-            /*Create function changeImageToPlayerOne() ?*/ 
+            /*Change image for Player One, check number of green buttons, if none left, we have the winner
+            TO DO: Change to last section, show the winner*/ 
             var img = '<img src="images/ironhack_blue.png" height="50" width="45">';
             this.hexaButtonsArray[i].innerHTML = img;
-            this.hexaButtonsArray[i].style.backgroundColor = "white"}
-          
+            this.hexaButtonsArray[i].style.backgroundColor = "white";
+            this.lightGreenButtons--;
+            console.log("number of light green" + this.lightGreenButtons)
+            if (this.lightGreenButtons === 0) {
+              let questionField = document.getElementById("question-field");
+              questionField.innerHTML = "I think we have a winner";
+              console.log("I think we have a winner");
+            }  
+          }
+          /*If clicked by Player Two*/
           else if (this.turn === 2) {
             this.pointsPlayerTwo++;
 
-            /*Create function displayePointsPlayerTwo() ?*/
+            /*Display points Player Two*/
             let displayPointsPlayerTwo = document.getElementById("display-points-player-two"); 
             displayPointsPlayerTwo.innerHTML = this.pointsPlayerTwo;
 
-            /*Create function changeImageToPlayerTwo() ?*/
+            /*Change image for Player Two, check number of green buttons, if none left, we have the winner.
+            TO DO: Change to last section, show the winner*/
             var img = '<img src="images/ironhack_black.png" height="50" width="45">';
             this.hexaButtonsArray[i].innerHTML = img;
-            this.hexaButtonsArray[i].style.backgroundColor = "white"; 
+            this.hexaButtonsArray[i].style.backgroundColor = "white";
+            this.lightGreenButtons--; 
+            console.log("number of light green" + this.lightGreenButtons)
+            if (this.lightGreenButtons === 0) {
+              let questionField = document.getElementById("question-field");
+              questionField.innerHTML = "I think we have a winner";
+              console.log("I think we have a winner");
+            }
           }
+
+        /*If incorrect answer submitted*/  
         } else {
           document.getElementById("input-answer").value = null;
-          this.hexaButtonsArray[i].style.backgroundColor = "rgb(160, 221, 229";
+          this.hexaButtonsArray[i].style.backgroundColor = "rgb(160, 221, 229)";
           console.log("Next one");
           let nextOne = document.getElementById("what-is-next-board");
           nextOne.innerHTML = "Sorry, time to change turns."
@@ -164,11 +226,8 @@ class Game {
   };
 
 
-  /*At the moment I don´t see how to access changeToWinnerScreen() from here... */
-  gameOver() {
-    if (this.numberOfClicks === 28) {changeToWinnerScreen()};
-  }
+}
 
-}  
+ 
 
 
