@@ -126,10 +126,31 @@ class Game {
   }
 
 
+  startTimer(event) {
+   console.log("Turn is" + this.turn) 
+   let timeLeft = 30;
+   let showSecondsLeft = document.getElementById('timer-panel');
+   setInterval(function() {
+     timeLeft--;
+     if (timeLeft >= 0) {
+       showSecondsLeft.innerHTML = timeLeft};
+     if (timeLeft === 0) {
+       console.log("TIMEOUT");
+       showSecondsLeft.innerHTML = "Time Out! Turns to be changed.";
+       console.log("Turn is" + this.turn);
+     } 
+   }, 1000);
+  };
+  /*TO DO:
+  stop timer when button color back to light green (wrong answer submitted) or when white (correct answer submitted)*/
+  /*TO DO: 
+  change turns if timeout*/
+
 
   assignClickToElement() {
     for (let i = 0; i < this.hexaButtonsArray.length; i++){
       this.hexaButtonsArray[i].addEventListener('click', this.handleClickElement.bind(this), this.numberOfClicks);
+      this.hexaButtonsArray[i].addEventListener('click', this.startTimer.bind(this));
     } 
   }
 
@@ -164,6 +185,7 @@ class Game {
             var img = '<img src="images/ironhack_blue.png" height="50" width="45">';
             this.hexaButtonsArray[i].innerHTML = img;
             this.hexaButtonsArray[i].style.backgroundColor = "white";
+            /*STOP TIMER HERE?*/
             this.lightGreenButtons--;
             console.log("number of light green" + this.lightGreenButtons)
             if (this.lightGreenButtons === 0) {
@@ -185,6 +207,7 @@ class Game {
             var img = '<img src="images/ironhack_black.png" height="50" width="45">';
             this.hexaButtonsArray[i].innerHTML = img;
             this.hexaButtonsArray[i].style.backgroundColor = "white";
+            /*STOP TIMER HERE?*/
             this.lightGreenButtons--; 
             console.log("number of light green" + this.lightGreenButtons)
             if (this.lightGreenButtons === 0) {
@@ -198,6 +221,9 @@ class Game {
         } else {
           document.getElementById("input-answer").value = null;
           this.hexaButtonsArray[i].style.backgroundColor = "rgb(160, 221, 229)";
+          /*STOP TIMER HERE?
+          clearInterval(varSetInterval);*/
+
           console.log("Next one");
           let nextOne = document.getElementById("what-is-next-board");
           nextOne.innerHTML = "Sorry, time to change turns."
