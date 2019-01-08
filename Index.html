@@ -11,47 +11,47 @@
   <div class="container">
 
     <section class="screen-section" id="start-section">
-      <div id="game-name">
-        JSFunctionMaster</div>
-      <div id="players-names">
+      <div class="start-section-divs" id="game-name"><header>
+        JSFunctionMaster</header></div>
+      <div class="start-section-divs" id="players-names">
       <div class="player-name">Player One Name</div>
       <div class="player-name">Player Two Name</div>
       </div>
-      <div>Shuffle Turns?</div>
-      <div>
+      <div class="start-section-divs">Shuffle Turns?</div>
+      <div class="start-section-divs">
         <button id="play-button">Play</button>
       </div>
     </section>
 
     <section class="screen-section" id="game-section">
      
-      <div id="question-chrono-field">
+      <div id="question-clicknumber-field">
         <div id="question-field"></div>
-        <div id="chrono"></div>
+        <div id="number-clicks"></div>
       </div>
 
       <div id="names-points-triangle-timer-panel">
 
         <div id="players-panel">
 
-          <div id="player-one-panel">
-            <div id="player-one-name">PLAYER ONE NAME</div>
-            <div id="display-points-player-one">POINTS PLAYER ONE</div>
+          <div class="player-x-panel">
+            <div class="player-x-name">Player one name</div>
+            <div id="display-points-player-one" class="display-points-player-x">0</div>
            
             <div class="ask-our-friend-MDN">
               <div class="ask-mdn"></div>
-              <div>Ask our friend MDN</div>
+              <div class="our-friend">Ask our friend MDN</div>
             </div>
 
           </div>  
 
-          <div id="player-two-panel">
-            <div id="player-two-name">PLAYER TWO NAME</div>
-            <div id="display-points-player-two">POINTS PLAYER TWO</div>
+          <div class="player-x-panel">
+            <div class="player-x-name">Player two name</div>
+            <div id="display-points-player-two" class="display-points-player-x">0</div>
             
             <div class="ask-our-friend-MDN">
               <div class="ask-mdn"></div>
-              <div>Ask our friend MDN</div>
+              <div class="our-friend">Ask our friend MDN</div>
             </div>
 
           </div>
@@ -127,6 +127,7 @@
 
   </div>
 
+  <script src="questions.js"></script>
   <script src="game.js"></script>
   <script src="index.js"></script> 
   

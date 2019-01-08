@@ -22,8 +22,10 @@ function changeToStartScreen () {
 document.getElementById("play-button").addEventListener("click", clickPlayButton);
 document.getElementById("play-again-button").addEventListener("click", changeToStartScreen);
 
-const myGame = new Game('x', 'y')
-myGame.shuffleQuestionsAndAnswers(this.questionsAndAnswers);
+
+
+const myGame = new Game('x', 'y', questionsAndAnswers)
+myGame.shuffleQuestionsAndAnswers();
 /*myGame.showNames();*/
 myGame.assignClickToElement();
 myGame.assignClickToAskMDN();

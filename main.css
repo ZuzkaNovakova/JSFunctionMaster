@@ -73,19 +73,45 @@ table {
   background-size: 100%;
 }
 
+.start-section-divs {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
 #game-name {
   color: rgb(42, 205, 226);
+  font-size: 5vw;
+  text-shadow: -2px 0 grey, 0 1px white, 1px 0 white, 0 -2px grey;
+  
 }
 
 #players-names {
   display: flex;
   flex-direction: row;
   color: rgb(42, 205, 226);
+  text-align: center;
+  justify-content: space-around;
 }
 
 .player-name {
   color: rgb(42, 205, 226);
+  text-align: center;
 }
+
+#play-button {
+  font-family: Verdana,sans-serif;
+  font-size: 2vw;
+  color: rgb(107, 104, 104);
+  background-image: linear-gradient(white, rgb(42, 205, 226)); 
+  border-radius: 6px;
+  width: 25%;
+  height: 25%;
+}
+
 
 #game-section {
   display: flex;
@@ -96,7 +122,7 @@ table {
   background-size: 100%;
 }
 
-#question-chrono-field {
+#question-clicknumber-field {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -108,6 +134,7 @@ table {
   background-color: rgb(160, 221, 229);
   background-image: radial-gradient( rgb(42, 205, 226), rgb(2, 62, 70));
   color: white;
+  text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
   font-size: 2vw;
   border-radius: 10px;
   text-align: center;
@@ -123,19 +150,50 @@ table {
 }
 
 #players-panel {
-  color: white;
+  background: transparent;
+  color: rgb(214, 237, 240);
+  text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  width: 34vh;
+  text-align: center;
+  flex-basis: 25%;
   height: 70vh;
-  padding: 0 15px;
-  margin: 0 25px; 
+  padding: 0 5px;
+  margin: 0 5px; 
+  font-size: 1.8vw;
+}
+
+.player-x-panel {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.player-x-name {
+  margin: 30px 10px 10px 10px;
+}
+
+.display-points-player-x {
+  margin: 5px;
+  font-size: 2vw;
+  color: rgb(233, 233, 74);
 }
 
 .ask-our-friend-MDN {
   display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  margin: 0 10px 10px 10px;
+  padding: 0;
+}
+
+.our-friend {
+  margin: 25px 0 5px 5px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .ask-mdn {
@@ -145,15 +203,16 @@ table {
   text-align: center;
   vertical-align: middle;
   border-radius: 4px;
+  margin: 15px 10px 10px 10px;
+  border: 1px solid black;
 }
 
 #triangle-board {
   background-color: transparent;
   display: flex;
   height: 70vh;
-  width: 32vh;
   justify-content: center;
-  flex-basis: 60%;
+  flex-basis: 40%;
   flex-direction: column;
 }
 
@@ -168,6 +227,7 @@ table {
   align-items: center;
   height: 13vh;
   color:white;
+  text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
 }
 
 #answers-board {
@@ -178,7 +238,7 @@ table {
   width: 60%;
   height: 80%;
   padding: 0 15px;
-  margin: 0 15px;
+  margin: 0 50px;
   border-radius: 4px;
 }
 
