@@ -11,10 +11,13 @@ class Game {
     this.hexaButtonsArray = document.getElementsByClassName("hexa-button");
     this.functionsReference = [];
     this.questionsAndAnswers = questions;
+    this.buttonColors = 
+      {"primary" : "rgb(160, 221, 229)",
+      "clicked": "rgb(76, 180, 194)" }
   }
 
   shuffleQuestionsAndAnswers() {
-    var j, x, i;
+    let j, x, i;
     for (i = this.questionsAndAnswers.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         x = this.questionsAndAnswers[i];
@@ -22,6 +25,8 @@ class Game {
         this.questionsAndAnswers[j] = x;
     }
   }
+
+  /*$ console logs*/
   
   showQuestion(button) {
     let indexButton = button.innerHTML;
@@ -37,7 +42,7 @@ class Game {
   }
 
   changeButtonColor(button) {
-    button.style.backgroundColor = "rgb(76, 180, 194)";
+    button.style.backgroundColor = this.buttonColors.clicked;
   }
 
   isSameBackGroundColor(button, color) {
@@ -45,7 +50,7 @@ class Game {
   }
 
   changeBackGroundColor(button, color) {
-    button.style.backgroundColor = "rgb(160, 221, 229)"
+    button.style.backgroundColor = this.buttonColors.primary;
   }
 
   addClassDark(button) {
@@ -71,7 +76,7 @@ class Game {
       /*Prevent players click more than one button:*/
       /*Check if there is a dark green button cliked:*/
       for (let i = 0; i < this.hexaButtonsArray.length; i++) {
-        if (this.isSameBackGroundColor(this.hexaButtonsArray[i], "rgb(76, 180, 194)")) { 
+        if (this.isSameBackGroundColor(this.hexaButtonsArray[i], this.buttonColors.clicked)) { 
           this.darkGreenButtons.push(this.hexaButtonsArray[i])
           // this.removeEventsListener()
         }
@@ -85,8 +90,8 @@ class Game {
         this.darkGreenButtons.splice(0);
         console.log("too many buttons clicked");
         for (let i = 0; i < this.hexaButtonsArray.length; i++) {
-          if (this.isSameBackGroundColor(this.hexaButtonsArray[i], "rgb(76, 180, 194)")) { 
-            this.changeBackGroundColor(this.hexaButtonsArray[i] , "rgb(160, 221, 229)")
+          if (this.isSameBackGroundColor(this.hexaButtonsArray[i], this.buttonColors.clicked)) { 
+            this.changeBackGroundColor(this.hexaButtonsArray[i] , this.buttonColors.primary)
           }
         };
 

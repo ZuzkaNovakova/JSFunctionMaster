@@ -56,3 +56,5 @@ const questionsAndAnswers = [
   {"question": "This method returns a new Array Iterator object that contains the values for each index in the array.", 
     "answer": "values"}
   ]
+
+  
