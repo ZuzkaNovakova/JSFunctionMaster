@@ -56,7 +56,44 @@ class Game {
   addClassDark(button) {
     button.className += " dark";
   }
+  removeClassDark(button) {
+    button.className = "hexa-button";
+  }
 
+  removeEventsListener(id) {
+    this.hexaButtonsArray[id].removeEventListener("click", this.functionsReference[id], false)
+  }
+
+  amIinMiddleOfTurn() {
+    const darkerElements = document.getElementsByClassName('dark');
+    return !!darkerElements.length  ;
+  }
+
+  assignSubmitButton() {
+    const buttonAnswer = document.getElementById('button-submit-answer')
+    buttonAnswer.addEventListener('click', this.checkAnswer.bind(this));
+  }
+
+  cleanInput() {
+    document.getElementById("input-answer").value = null;
+  }
+
+  checkAnswer(event) {
+    let submittedAnswer = document.getElementById("input-answer").value;
+
+    if (submittedAnswer === this.questionsAndAnswers[this.buttonPressed.id].answer.toString()) {
+      console.log('🤪')
+      var img = '<img src="images/ironhack_blue.png" height="50" width="45">';
+      this.hexaButtonsArray[this.buttonPressed.id].innerHTML = img;
+      this.hexaButtonsArray[this.buttonPressed.id].style.backgroundColor = "white";
+      this.removeClassDark(this.buttonPressed);
+      this.removeEventsListener(this.buttonPressed.id);
+      this.cleanInput();
+    } else { 
+      console.log('😞')
+      this.changeTurn()
+    }
+  }
   removeEventsListener() {
     for (let i = 0; i < this.hexaButtonsArray.length; i++) {
       if (this.hexaButtonsArray[i].style.backgroundColor === this.buttonColors.clicked){
@@ -64,19 +101,47 @@ class Game {
     }
   }
 
+
   handleClickElement(event) {
-    // console.log("pushed")
-    // this.addClassDark(event.target)
+    console.log(event.target);
+    if(!this.amIinMiddleOfTurn()) {
+      const buttonPressed = event.target
+      this.buttonPressed = buttonPressed;
+      this.addClassDark(event.target);
+      this.showQuestion(buttonPressed);
+      this.showAnswer(buttonPressed);
+    }
+    
+    
     
     /*Check that the players haven´t used all clicks they have (let´s give them 32) and that there are still light green buttons left */  
     // else
     /*Players did more than 32 clicks without submitting 28 answers correctly.
     TO DO: Change to last section, repeat "Stop playing and study harder!"?*/
-    if (this.numberOfClicks < 32 && this.lightGreenButtons != 0) {
+    // if (this.numberOfClicks < 32 && this.lightGreenButtons != 0) {
 
       /*Prevent players click more than one button:*/
       /*Check if there is a dark green button cliked:*/
-      for (let i = 0; i < this.hexaButtonsArray.length; i++) {
+      // for (let i = 0; i < this.hexaButtonsArray.length; i++) {
+      //   if (this.isSameBackGroundColor(this.hexaButtonsArray[i], "rgb(76, 180, 194)")) { 
+      //     this.darkGreenButtons.push(this.hexaButtonsArray[i])
+          
+      //   }
+      // }
+      // console.log(this.darkGreenButtons.length);
+
+      /*if more than one button is clicked:*/
+    //   if (this.darkGreenButtons.length >= 1) {
+    //     let nextOne = document.getElementById("what-is-next-board");
+    //     nextOne.innerHTML = "You can only choose one button.";
+    //     this.darkGreenButtons.splice(0);
+    //     console.log("too many buttons clicked");
+    //     for (let i = 0; i < this.hexaButtonsArray.length; i++) {
+    //       if (this.isSameBackGroundColor(this.hexaButtonsArray[i], "rgb(76, 180, 194)")) { 
+    //         this.changeBackGroundColor(this.hexaButtonsArray[i] , "rgb(160, 221, 229)")
+    //       }
+    //     };
+  /*      for (let i = 0; i < this.hexaButtonsArray.length; i++) {
         if (this.isSameBackGroundColor(this.hexaButtonsArray[i], this.buttonColors.clicked)) { 
           this.darkGreenButtons.push(this.hexaButtonsArray[i])
           // this.removeEventsListener()
@@ -85,7 +150,7 @@ class Game {
       // console.log(this.darkGreenButtons.length);
 
       /*if more than one button is clicked:*/
-      if (this.darkGreenButtons.length >= 1) {
+    /*  if (this.darkGreenButtons.length >= 1) {
         let nextOne = document.getElementById("what-is-next-board");
         nextOne.innerHTML = "You can only choose one button.";
         this.darkGreenButtons.splice(0);
@@ -94,22 +159,22 @@ class Game {
           if (this.isSameBackGroundColor(this.hexaButtonsArray[i], this.buttonColors.clicked)) { 
             this.changeBackGroundColor(this.hexaButtonsArray[i] , this.buttonColors.primary)
           }
-        };
+        }; */
 
-        /*if only one button is clicked:*/
-      } else {
-        let buttonPressed = event.target
-        this.showQuestion(buttonPressed)
+    //     /*if only one button is clicked:*/
+    //   } else {
+    //     let buttonPressed = event.target
+    //     this.showQuestion(buttonPressed)
         
-        this.showAnswer(buttonPressed);
-        this.changeButtonColor(buttonPressed);
-        this.numberOfClicks++
-      };
-    } else {
-      console.log("Game over")
-      let questionField = document.getElementById("question-field");
-      questionField.innerHTML = "Stop playig and study harder!";
-    }    
+    //     this.showAnswer(buttonPressed);
+    //     this.changeButtonColor(buttonPressed);
+    //     this.numberOfClicks++
+    //   };
+    // } else {
+    //   console.log("Game over")
+    //   let questionField = document.getElementById("question-field");
+    //   questionField.innerHTML = "Stop playig and study harder!";
+    // }
   }
 
 
@@ -139,8 +204,10 @@ class Game {
     for (let i = 0; i < this.hexaButtonsArray.length; i++){
       this.functionsReference[i] = this.handleClickElement.bind(this);
       this.hexaButtonsArray[i].addEventListener('click', this.functionsReference[i] , this.numberOfClicks);
+
       // this.hexaButtonsArray[i].addEventListener('click', this.startTimer.bind(this));
-    } 
+    }
+    this.assignSubmitButton()
   }
 
   submitAnswer() {
