@@ -11,10 +11,13 @@ class Game {
     this.hexaButtonsArray = document.getElementsByClassName("hexa-button");
     this.functionsReference = [];
     this.questionsAndAnswers = questions;
+    this.buttonColors = 
+      {"primary" : "rgb(160, 221, 229)",
+      "clicked": "rgb(76, 180, 194)" }
   }
 
   shuffleQuestionsAndAnswers() {
-    var j, x, i;
+    let j, x, i;
     for (i = this.questionsAndAnswers.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         x = this.questionsAndAnswers[i];
@@ -22,6 +25,8 @@ class Game {
         this.questionsAndAnswers[j] = x;
     }
   }
+
+  /*$ console logs*/
   
   showQuestion(button) {
     let indexButton = button.innerHTML;
@@ -37,7 +42,7 @@ class Game {
   }
 
   changeButtonColor(button) {
-    button.style.backgroundColor = "rgb(76, 180, 194)";
+    button.style.backgroundColor = this.buttonColors.clicked;
   }
 
   isSameBackGroundColor(button, color) {
@@ -45,7 +50,7 @@ class Game {
   }
 
   changeBackGroundColor(button, color) {
-    button.style.backgroundColor = "rgb(160, 221, 229)"
+    button.style.backgroundColor = this.buttonColors.primary;
   }
 
   addClassDark(button) {
@@ -89,6 +94,12 @@ class Game {
       this.changeTurn()
     }
   }
+  removeEventsListener() {
+    for (let i = 0; i < this.hexaButtonsArray.length; i++) {
+      if (this.hexaButtonsArray[i].style.backgroundColor === this.buttonColors.clicked){
+      this.hexaButtonsArray[i].removeEventListener("click", this.functionsReference[i], false)}
+    }
+  }
 
 
   handleClickElement(event) {
@@ -130,6 +141,25 @@ class Game {
     //         this.changeBackGroundColor(this.hexaButtonsArray[i] , "rgb(160, 221, 229)")
     //       }
     //     };
+  /*      for (let i = 0; i < this.hexaButtonsArray.length; i++) {
+        if (this.isSameBackGroundColor(this.hexaButtonsArray[i], this.buttonColors.clicked)) { 
+          this.darkGreenButtons.push(this.hexaButtonsArray[i])
+          // this.removeEventsListener()
+        }
+      }
+      // console.log(this.darkGreenButtons.length);
+
+      /*if more than one button is clicked:*/
+    /*  if (this.darkGreenButtons.length >= 1) {
+        let nextOne = document.getElementById("what-is-next-board");
+        nextOne.innerHTML = "You can only choose one button.";
+        this.darkGreenButtons.splice(0);
+        console.log("too many buttons clicked");
+        for (let i = 0; i < this.hexaButtonsArray.length; i++) {
+          if (this.isSameBackGroundColor(this.hexaButtonsArray[i], this.buttonColors.clicked)) { 
+            this.changeBackGroundColor(this.hexaButtonsArray[i] , this.buttonColors.primary)
+          }
+        }; */
 
     //     /*if only one button is clicked:*/
     //   } else {
