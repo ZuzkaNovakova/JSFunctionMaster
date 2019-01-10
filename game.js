@@ -59,7 +59,8 @@ class Game {
 
   removeEventsListener() {
     for (let i = 0; i < this.hexaButtonsArray.length; i++) {
-      this.hexaButtonsArray[i].removeEventListener("click", this.functionsReference[i], false)
+      if (this.hexaButtonsArray[i].style.backgroundColor === this.buttonColors.clicked){
+      this.hexaButtonsArray[i].removeEventListener("click", this.functionsReference[i], false)}
     }
   }
 
