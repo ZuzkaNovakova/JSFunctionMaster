@@ -291,6 +291,10 @@ table {
   border-radius: 4px;
 }
 
+.hexa-button.dark {
+  background-color: rgb(76, 180, 194);
+}
+
 .hexa-button:hover {
   transform: scale(1.04);
   background-color: rgb(176, 245, 245);
