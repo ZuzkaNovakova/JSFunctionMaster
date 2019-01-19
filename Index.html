@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy" content="img-src * 'self' data: https:">;
   <link rel="Stylesheet" href="main.css">
   <title>JSFunctionMaster</title>
 </head>
@@ -135,11 +136,13 @@
 
 
     <section class="screen-section" id="and-the-winner-is-section">
+      <div class="winner-screen-divs">
         <div id="result-panel">And the winner is:</div>
         <div id="winner-name">Player Name</div>
-        <div>
+        <div id="play-again-button-div">
           <button id="play-again-button">Back to start screen</button>
         </div>
+      </div>
     </section>
 
   </div>

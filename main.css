@@ -354,7 +354,7 @@ table {
 #and-the-winner-is-section {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-image: url(images/winner_screen_background.jpeg);
   background-repeat: no-repeat;
@@ -362,24 +362,27 @@ table {
 }
 
 #result-panel {
+  display: flex;
   color: rgb(252, 227, 9);
   font-size: 5vw;
   text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
 }
 
 #winner-name {
+  display: flex;
   font-size: 6vw;
   color: rgb(252, 227, 9);
   text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
 }
 
 #play-again-button {
+  
   font-family: Verdana,sans-serif; 
   background-color: rgb(4, 214, 241);
   border: 1px solid rgb(116, 180, 189);
   background-image: radial-gradient(white, rgb(65, 136, 97));
   border-radius: 6px;
-  width: 100%;
+  width: 50%;
   height: 80%;
   margin: 5px;
   font-size: 2.1vw;
