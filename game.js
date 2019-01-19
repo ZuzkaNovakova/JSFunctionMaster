@@ -128,7 +128,7 @@ class Game {
     this.checkLightGreenButtons();
     this.wellDoneMessage();
     if (this.turn === "player1") {
-      var img = '<img src="images/ironhack_blue.png" height="50" width="45">';
+      var img = '<img src="Images/ironhack_blue.png" height="50" width="45">';
       this.hexaButtonsArray[this.buttonPressed.id].innerHTML = img;
       this.hexaButtonsArray[this.buttonPressed.id].style.backgroundColor = "white";
       this.pointsPlayerOne++;
@@ -137,7 +137,7 @@ class Game {
     if (this.turn === "player2") {
       // let image =  document.createElement("img")
 
-      var img = '<img src="images/ironhack_black.png" height="50" width="45">';
+      var img = '<img src="Images/ironhack_black.png" height="50" width="45">';
       this.hexaButtonsArray[this.buttonPressed.id].innerHTML = img;
       this.hexaButtonsArray[this.buttonPressed.id].style.backgroundColor = "white";
       this.pointsPlayerTwo++;
