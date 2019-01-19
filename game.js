@@ -193,7 +193,7 @@ class Game {
   }
 
   checkTotalClicks(button) {
-    if(this.totalClicks >= 3) {
+    if(this.totalClicks >= 32) {
       let result = document.getElementById("result-panel");
       result.innerHTML = "Stop playing and study harder!";
       this.changeToWinnerScreen();

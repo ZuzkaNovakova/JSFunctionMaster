@@ -8,7 +8,7 @@ function clickPlayButton() {
 
 function changeToWinnerScreen() { 
   document.getElementById("game-section").style.display = "none";
-  document.getElementById("and-the-winner-is-section").style.display = "block";
+  document.getElementById("and-the-winner-is-section").style.display = "flex";
   document.getElementById("start-section").style.display = "none";
 }
 

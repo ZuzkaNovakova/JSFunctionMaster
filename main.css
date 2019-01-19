@@ -21,7 +21,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	/*vertical-align: baseline;*/
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -351,8 +351,9 @@ table {
   justify-content: center;
 }
 
-#and-the-winner-is-section {
+#winner-section {
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -361,29 +362,36 @@ table {
   background-size: 100%;
 }
 
-#result-panel {
+.winner-screen-divs {
+  width: 100%;
+  height: 100vw;
   display: flex;
+  flex-direction: column; 
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+
+#result-panel {
   color: rgb(252, 227, 9);
   font-size: 5vw;
   text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
 }
 
 #winner-name {
-  display: flex;
   font-size: 6vw;
   color: rgb(252, 227, 9);
   text-shadow: -2px 0 black, 0 1px grey, 1px 0 grey, 0 -2px black;
 }
 
 #play-again-button {
-  
   font-family: Verdana,sans-serif; 
   background-color: rgb(4, 214, 241);
   border: 1px solid rgb(116, 180, 189);
   background-image: radial-gradient(white, rgb(65, 136, 97));
   border-radius: 6px;
-  width: 50%;
-  height: 80%;
+  width: 100%;
+  height: 50%;
   margin: 5px;
   font-size: 2.1vw;
   color:rgb(70, 73, 70);
