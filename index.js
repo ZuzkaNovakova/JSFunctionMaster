@@ -1,21 +1,22 @@
 
-function clickPlayButton () {
+function clickPlayButton() {
   document.getElementById("start-section").style.display = "none";
   document.getElementById("game-section").style.display = "block";
   document.getElementById("and-the-winner-is-section").style.display = "none";
 }
 
 
-function changeToWinnerScreen () { 
+function changeToWinnerScreen() { 
   document.getElementById("game-section").style.display = "none";
   document.getElementById("and-the-winner-is-section").style.display = "block";
-  document.getElementById("start-section").style.display = "none"
+  document.getElementById("start-section").style.display = "none";
 }
 
-function changeToStartScreen () {
+function changeToStartScreen() {
   document.getElementById("and-the-winner-is-section").style.display = "none";
   document.getElementById("start-section").style.display = "block";
-  document.getElementById("game-section").style.display = "none"
+  document.getElementById("game-section").style.display = "none";
+  /*!!!!!!!!!!reset everything*/
 }
 
 
@@ -24,13 +25,11 @@ document.getElementById("play-again-button").addEventListener("click", changeToS
 
 
 
-const myGame = new Game('x', 'y', questionsAndAnswers)
+const myGame = new Game(questionsAndAnswers, changeToWinnerScreen);
 myGame.shuffleQuestionsAndAnswers();
-/*myGame.showNames();*/
 myGame.assignClickToElement();
 myGame.assignClickToAskMDN();
-
-/*myGame.gameOver();*/
+myGame.assignNames()
 
 
 

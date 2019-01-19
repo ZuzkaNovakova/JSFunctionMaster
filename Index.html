@@ -13,13 +13,27 @@
     <section class="screen-section" id="start-section">
       <div class="start-section-divs" id="game-name"><header>
         JSFunctionMaster</header></div>
-      <div class="start-section-divs" id="players-names">
-      <div class="player-name">Player One Name</div>
-      <div class="player-name">Player Two Name</div>
+      
+      <div class="submit-names">
+       <div class="player-name" id="player-one-name">
+         <form class="player-name">
+           <label for="input-one-name"></label>
+           <input class="input-name" id="input-one-name" type="text" placeholder="Player One Name">
+           <button type="button" class ="name-submit-button" id="button-submit-one-name">Submit</button>
+         </form>
+        </div>
+
+        <div class="player-name" id="player-two-name">
+         <form class="player-name">
+           <label for="input-two-name"></label>
+           <input class="input-name" id="input-two-name" type="text" placeholder="Player Two Name">
+           <button type="button" class ="name-submit-button" id="button-submit-two-name">Submit</button>
+         </form>
+       </div>
       </div>
-      <div class="start-section-divs">Shuffle Turns?</div>
+      
       <div class="start-section-divs">
-        <button id="play-button">Play</button>
+        <button id="play-button">PLAY</button>
       </div>
     </section>
 
@@ -27,7 +41,6 @@
      
       <div id="question-clicknumber-field">
         <div id="question-field"></div>
-        <div id="number-clicks"></div>
       </div>
 
       <div id="names-points-triangle-timer-panel">
@@ -35,7 +48,7 @@
         <div id="players-panel">
 
           <div class="player-x-panel">
-            <div class="player-x-name">Player one name</div>
+            <div class="player-x-name" id="player-one">Player one name</div>
             <div id="display-points-player-one" class="display-points-player-x">0</div>
            
             <div class="ask-our-friend-MDN">
@@ -46,7 +59,7 @@
           </div>  
 
           <div class="player-x-panel">
-            <div class="player-x-name">Player two name</div>
+            <div class="player-x-name" id="player-two">Player two name</div>
             <div id="display-points-player-two" class="display-points-player-x">0</div>
             
             <div class="ask-our-friend-MDN">
@@ -103,16 +116,16 @@
           </div>
         </div>
         
-        <div id="timer-panel">TIMER?</div>
+        <div id="timer-panel">30</div>
         
       </div>
 
       <div id="answers-whatnext-board">
         <div id="answers-board">
           <form id="form">
-            <label for="input-answer">Submit your answer:</label>
+            <label for="input-answer">Your answer:</label>
             <input id="input-answer" type="text" placeholder="Answer example: showMe (No brackets or dots needed, case-sensitive!)">
-            <button type="button" id="button-submit-answer" onclick="myGame.submitAnswer()">Let´s go!</button>
+            <button type="button" id="button-submit-answer">Let´s go!</button>
           </form>
         </div>
         <div id="what-is-next-board">Choose a button.</div>
@@ -122,11 +135,16 @@
 
 
     <section class="screen-section" id="and-the-winner-is-section">
-        <button id="play-again-button">Back to start screen</button>
+        <div id="result-panel">And the winner is:</div>
+        <div id="winner-name">Player Name</div>
+        <div>
+          <button id="play-again-button">Back to start screen</button>
+        </div>
     </section>
 
   </div>
 
+  
   <script src="questions.js"></script>
   <script src="game.js"></script>
   <script src="index.js"></script> 
