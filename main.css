@@ -289,11 +289,19 @@ table {
 }
 
 #input-answer {
-  width: 65%;
-  height: 40%;
+  width: 68%;
+  height: 60%;
+  font-size: 2vw;
+  color: rgb(2, 62, 70);
   border-radius: 4px;
   text-align: center;
   margin: 0 20px 0 0;
+  background-color: rgb(208, 228, 236);
+}
+
+::placeholder {
+  font-size: 0.9vw;
+  text-align: center;
 }
 
 #button-submit-answer {
